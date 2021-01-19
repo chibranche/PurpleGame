@@ -1,0 +1,14 @@
+/* Copyright © FINANCE SECURITY GmbH - All rights reserved. */
+
+  .loading-animation-container {
+    z-index:10;
+    position: fixed;
+    margin:auto;
+    top:Calc(50% - 32px);
+    left:Calc(50% - 32px);
+    width: 222px;
+    height: 222px;
+    display: inline-block;
+    overflow: hidden;
+    background: none;
+  }

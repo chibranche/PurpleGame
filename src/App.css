@@ -1,3 +1,48 @@
+* {
+    font-size: 100%;
+    font-family: Arial;
+    -webkit-font-smoothing: antialiased
+}
+
+html,
+body,
+.App{
+    height:100%;
+}
+
+/* All links inherit parent style */
+a{
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+/*List default style  */
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
 .app-container{
     height:100%
+}
+
+.main-content{
+    height:Calc(100% - 80px);
+    width:100%;
+    position:relative;
+    flex-direction: column;
+    left:0;
+    top:20px;
+}
+
+.flex-row{
+    display:flex;
+    flex-direction: row;
+}
+
+.flex-column{
+    display:flex;
+    flex-direction: column;
 }

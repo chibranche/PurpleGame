@@ -1,3 +1,39 @@
 .toolbar-container{
-    display:flex
+    background: purple;
+    height: 80px
+}
+
+.toolbar-navbar-container{
+    display:flex;
+    justify-content: flex-end;
+    width:100%
+}
+
+.toolbar-logo{
+    color:white;
+    width:200px;
+    margin-top:10px;
+    padding:10px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.toolbar-navbar-element{
+    border: 1px solid black;
+    color:white;
+    background-color:blueviolet;
+
+    margin-right:20px;
+    margin-top:15px;
+    padding:15px;
+    
+    cursor: pointer;
+}
+
+.toolbar-navbar-element:hover{
+    background-color: magenta;
+}
+
+.toolbar-logo:hover{
+    color:orange
 }
