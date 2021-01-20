@@ -37,6 +37,12 @@ ul{
     top:20px;
 }
 
+.main-content-container{
+    position:relative;
+    left:7.5%;
+    width:85%;
+}
+
 .flex-row{
     display:flex;
     flex-direction: row;

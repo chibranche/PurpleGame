@@ -1,0 +1,21 @@
+.button {
+    text-align: center;
+    background: plum;
+
+    font: inherit;
+    border: 1px solid var(--theme4);
+    border-radius: 5px;
+    padding: 3px 5px;
+    box-shadow: 1px 1px 3px grey;
+    color: white;
+    cursor: pointer;
+    transition: .3s all ease;
+}
+
+.button:hover,
+.button:focus,
+.button:active,
+.button.active {
+    background: violet;
+    outline:none
+}

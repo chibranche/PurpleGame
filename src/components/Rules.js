@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class Rules extends Component {
     render() {
         return (
-            <div>
+            <div className="main-content-container">
                 Here are the rules :
                 -
             </div>

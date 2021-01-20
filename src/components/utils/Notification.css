@@ -1,0 +1,34 @@
+.notification-container{
+    width:40%;
+    max-width: 40%;
+
+    position:fixed;
+    top:0;
+    right:0;
+    margin:20px;
+
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.35);
+
+    z-index:15;
+    transition: 0.3s ease all;
+}
+
+.notification-icon{
+ position:relative;
+ margin:auto 20px;
+}
+
+.notification-close{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color:white;
+    font-size:1.5em;
+}
+
+.notification-message{
+    color: white;
+    font-size: 1.2em;
+    padding: 20px 50px 15px 0px;
+    text-align: justify;
+}
