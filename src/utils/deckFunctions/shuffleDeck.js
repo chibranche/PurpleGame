@@ -1,10 +1,10 @@
-export function shuffle (deck) {
+export default function shuffle (deck) {
     let shuffledDeck = []
-    for (let i=0; i<deck.length; i++){
+    let deckSize = deck.length
+    for (let i=0; i<deckSize; i++){
         let randomIndex = Math.floor(Math.random() * Math.floor(deck.length-i))
         let randomCard = deck.splice(randomIndex,1)
-        shuffledDeck.push(randomCard)
+        shuffledDeck.push(randomCard[0])
     }
-    console.log(shuffledDeck)
     return shuffledDeck
 }

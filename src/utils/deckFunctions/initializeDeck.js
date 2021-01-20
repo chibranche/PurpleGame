@@ -12,9 +12,9 @@ export default function initializeDeck() {
                 var card = { Value: values[x], Suit: suits[i] };
                 deck.push(card);
             }
-            deck.push({Value:"Joker", Suits:"Joker"})
-            deck.push({Value:"Joker", Suits:"Joker"})
         }
+        deck.push({Value:"Joker", Suits:"Joker"})
+        deck.push({Value:"Joker", Suits:"Joker"})
         return deck;
     }
 

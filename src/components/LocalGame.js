@@ -1,20 +1,97 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+
+import initializeDeck from "../utils/deckFunctions/initializeDeck"
+import Card from "./Card"
+import Button from "./utils/Button"
 
 import "./LocalGame.css"
 
 export class LocalGame extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
-             
+
         }
     }
-    
+
+    componentDidMount() {
+        this.startGame()
+    }
+
+    startGame() {
+        let deck = initializeDeck()
+        this.setState({
+            deck: deck,
+            discard: [],
+            drawnCards: []
+        })
+    }
+
+    drawCard() {
+        //TODO : if deck empty, reshuffle discard and put it as deck
+        if (this.state.deck.length === 0){
+            return(null)
+        }
+
+        let deck = this.state.deck
+        let drawnCards = this.state.drawnCards
+        let card = deck.shift()
+        drawnCards.push(card)
+
+        this.setState({
+            drawnCards: drawnCards,
+            deck: deck
+        })
+    }
+
+    endTurn() {
+        let discard = this.state.drawnCards.concat(this.state.discard)
+        this.setState({
+            discard: discard,
+            drawnCards: []
+        })
+    }
+
+    showCards(){
+        let cards=[]
+
+        for(let i in this.state.drawnCards){
+            cards.push(
+                <Card key={"card"+i} card={this.state.drawnCards[i]} />
+            )
+        }
+
+        return cards
+    }
+
     render() {
         return (
             <div className="main-content-container">
                 This is a local game
+                <div className="playing-area">
+                    {this.state.deck &&
+                        <Fragment>
+                            <div>{this.state.deck.length} cards remaining in the deck</div>
+                            <div>{this.state.discard.length} cards in the discard</div>
+                            <Button
+                                handleClick={this.drawCard.bind(this)}>
+                                Draw a card
+                        </Button>
+                            <Button
+                                handleClick={this.endTurn.bind(this)}>
+                                End turn
+                        </Button>
+
+                            {this.state.drawnCards.length > 0 &&
+                                <Fragment>
+                                    {this.showCards()}
+                                </Fragment>
+                            }
+
+                        </Fragment>
+                    }
+                </div>
             </div>
         )
     }
