@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 
 import initializeDeck from "../utils/deckFunctions/initializeDeck"
+import shuffleDeck from "../utils/deckFunctions/shuffleDeck"
 import Card from "./Card"
 import Button from "./utils/Button"
 
@@ -30,8 +31,8 @@ export class LocalGame extends Component {
 
     drawCard() {
         //TODO : if deck empty, reshuffle discard and put it as deck
-        if (this.state.deck.length === 0){
-            return(null)
+        if (this.state.deck.length === 0) {
+            return (null)
         }
 
         let deck = this.state.deck
@@ -45,6 +46,23 @@ export class LocalGame extends Component {
         })
     }
 
+    shuffleDeck(){
+        let deck = shuffleDeck(this.state.deck)
+        this.setState({
+            deck:deck
+        })
+    }
+
+    shuffleDiscardDeck(){
+        let deck = this.state.deck.concat(this.state.discard)
+        deck = shuffleDeck(deck)
+        this.setState({
+            deck:deck,
+            discard:[]
+        })
+
+    }
+
     endTurn() {
         let discard = this.state.drawnCards.concat(this.state.discard)
         this.setState({
@@ -53,12 +71,12 @@ export class LocalGame extends Component {
         })
     }
 
-    showCards(){
-        let cards=[]
+    showCards() {
+        let cards = []
 
-        for(let i in this.state.drawnCards){
+        for (let i in this.state.drawnCards) {
             cards.push(
-                <Card key={"card"+i} card={this.state.drawnCards[i]} />
+                <Card key={"card" + i} card={this.state.drawnCards[i]} />
             )
         }
 
@@ -79,14 +97,24 @@ export class LocalGame extends Component {
                                 Draw a card
                         </Button>
                             <Button
+                                handleClick={this.shuffleDiscardDeck.bind(this)}>
+                                Reshuffle (with discard)
+                        </Button>
+                        <Button
+                                handleClick={this.shuffleDeck.bind(this)}>
+                                Reshuffle (no discard)
+                        </Button>
+                            <Button
                                 handleClick={this.endTurn.bind(this)}>
                                 End turn
                         </Button>
 
+
                             {this.state.drawnCards.length > 0 &&
-                                <Fragment>
+                                <div className="drawn-cards-container flex-row">
+
                                     {this.showCards()}
-                                </Fragment>
+                                </div>
                             }
 
                         </Fragment>

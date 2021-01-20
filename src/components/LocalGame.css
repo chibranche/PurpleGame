@@ -4,3 +4,7 @@
     text-align:center;
     border: 1px solid black;
 }
+
+.drawn-cards-container{
+    margin:25px;
+}
