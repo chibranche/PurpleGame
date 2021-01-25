@@ -9,7 +9,8 @@
 
 .drawn-cards-container{
     margin:25px;
-    height:190px;
+    min-height:190px;
+    flex-wrap:wrap;
 }
 
 .game-info{
@@ -28,4 +29,9 @@
 
 .board-buttons{
     margin-top:50px
+}
+
+.line-breaker{
+    flex-basis: 100%;
+    height: 0;
 }

@@ -75,6 +75,11 @@ export class LocalGame extends Component {
         let cards = []
 
         for (let i in this.state.drawnCards) {
+            if (i%4 === 0){
+                cards.push(
+                    <div className="line-breaker"/>
+                )
+            }
             cards.push(
                 <Card key={"card" + i} card={this.state.drawnCards[i]} />
             )
