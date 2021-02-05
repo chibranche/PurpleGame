@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import initializeDeck from "../utils/deckFunctions/initializeDeck"
 import shuffleDeck from "../utils/deckFunctions/shuffleDeck"
+
+import LocalPlayerSelect from "./LocalPlayerSelect"
 import Card from "./Card"
 import Button from "./utils/Button"
 
@@ -75,9 +77,9 @@ export class LocalGame extends Component {
         let cards = []
 
         for (let i in this.state.drawnCards) {
-            if (i%4 === 0){
+            if (i % 4 === 0) {
                 cards.push(
-                    <div className="line-breaker"/>
+                    <div className="line-breaker" />
                 )
             }
             cards.push(
@@ -88,7 +90,20 @@ export class LocalGame extends Component {
         return cards
     }
 
+    handleStart(players) {
+        this.setState({
+            players: players,
+            gameStarted: true
+        })
+    }
+
     render() {
+        if (!this.state.gameStarted) {
+            return (
+                <LocalPlayerSelect
+                    handleStart={this.handleStart.bind(this)} />
+            )
+        }
         return (
             <div className="main-content-container">
 
